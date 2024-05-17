@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Галерея изображений</title>
+    <style>
+        .gallery-container {
+            position: relative;
+            max-width: 900px;
+            margin: auto;
+        }
+        .gallery-container img {
+            width: 100%;
+            display: block;
+            border-radius: 8px;
+        }
+        .button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .button.left {
+            left: 10px;
+        }
+        .button.right {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="gallery-container">
+    <img id="gallery-image" src="niko1.jpeg" alt="Изображение галереи">
+    <button class="button left" onclick="changeImage(-1)">&#10094;</button>
+    <button class="button right" onclick="changeImage(1)">&#10095;</button>
+</div>
+
+<script>
+    var images = [
+        "niko1.jpeg",
+        "alistair.jpeg"
+    ];
+    var currentIndex = 0;
+
+    function changeImage(direction) {
+        currentIndex += direction;
+        if (currentIndex < 0) {
+            currentIndex = images.length - 1;
+        } else if (currentIndex >= images.length) {
+            currentIndex = 0;
+        }
+        document.getElementById('gallery-image').src = images[currentIndex];
+    }
+</script>
+
+</body>
+</html>
