@@ -6,3 +6,5 @@
 2024-05-17 11:27:54. 127.0.0.1, /home/vboxuser/test_1/prakt_6/alistair.jpeg, 200
 2024-05-17 11:29:05. 127.0.0.1, /home/vboxuser/test_1/prakt_6/index.html, 200
 2024-05-17 11:29:11. 127.0.0.1, /home/vboxuser/test_1/prakt_6/allooo, 404
+2024-05-17 11:51:38. 127.0.0.1, /home/vboxuser/test_1/prakt_6/index.html, 200
+

@@ -3,8 +3,11 @@ import os
 import configparser
 import datetime
 
-def read_file(file_path, mode='r'):
+def read_file(file_path, mode='r', encoding=None):
     try:
+        if encoding:
+            with open(file_path, mode, encoding=encoding) as file:
+                return file.read()
         with open(file_path, mode) as file:
             return file.read()
     except FileNotFoundError:
@@ -53,14 +56,14 @@ while True:
         request_line = msg.split('\r\n')[0]
         requested_file = os.path.join(working_directory, request_line.split(' ')[1][1:])
 
-        if requested_file == working_directory + '/':
+        if requested_file == working_directory + '/' or requested_file == working_directory + "\\":
             requested_file = os.path.join(working_directory, 'index.html')
         print(requested_file)
 
         content_type = get_content_type(requested_file)
 
         if content_type.startswith("text/"):
-            file_content = read_file(requested_file)
+            file_content = read_file(requested_file, encoding='utf-8')
         else:
             file_content = read_file(requested_file, 'rb')
 
